@@ -3,7 +3,7 @@ import { computed } from "vue"
 import { getDefaultRESTRequest } from "~/helpers/rest/default"
 import { HoppRESTDocument, HoppRESTSaveContext } from "~/helpers/rest/document"
 import { TabService } from "./tab"
-import { HandleRef } from "../new-workspace/handle"
+import { Handle } from "../new-workspace/handle"
 import { WorkspaceRequest } from "../new-workspace/workspace"
 
 export class RESTTabService extends TabService<HoppRESTDocument> {
@@ -59,7 +59,7 @@ export class RESTTabService extends TabService<HoppRESTDocument> {
         tab.document.saveContext?.originLocation === "workspace-user-collection"
       ) {
         const requestHandle = tab.document.saveContext.requestHandle as
-          | HandleRef<WorkspaceRequest>["value"]
+          | Handle<WorkspaceRequest>["value"]
           | undefined
 
         if (!ctx.requestHandle || !requestHandle) {
@@ -102,7 +102,7 @@ export class RESTTabService extends TabService<HoppRESTDocument> {
         tab.document.saveContext?.originLocation === "workspace-user-collection"
       ) {
         const requestHandle = tab.document.saveContext.requestHandle as
-          | HandleRef<WorkspaceRequest>["value"]
+          | Handle<WorkspaceRequest>["value"]
           | undefined
 
         if (requestHandle?.type === "invalid") {

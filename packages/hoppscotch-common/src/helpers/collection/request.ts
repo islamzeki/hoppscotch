@@ -5,7 +5,7 @@ import {
 } from "@hoppscotch/data"
 
 import { getService } from "~/modules/dioc"
-import { HandleRef } from "~/services/new-workspace/handle"
+import { Handle } from "~/services/new-workspace/handle"
 import { WorkspaceRequest } from "~/services/new-workspace/workspace"
 import { RESTTabService } from "~/services/tab/rest"
 import { getAffectedIndexes } from "./affectedIndex"
@@ -56,7 +56,7 @@ export function resolveSaveContextOnRequestReorder(payload: {
     }
 
     const requestHandle = tab.document.saveContext.requestHandle as
-      | HandleRef<WorkspaceRequest>["value"]
+      | Handle<WorkspaceRequest>["value"]
       | undefined
 
     if (!requestHandle || requestHandle.type === "invalid") {
@@ -86,7 +86,7 @@ export function resolveSaveContextOnRequestReorder(payload: {
     }
 
     const requestHandle = tab.value.document.saveContext.requestHandle as
-      | HandleRef<WorkspaceRequest>["value"]
+      | Handle<WorkspaceRequest>["value"]
       | undefined
 
     if (!requestHandle || requestHandle.type === "invalid") {

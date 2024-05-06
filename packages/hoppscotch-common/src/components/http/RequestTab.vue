@@ -21,7 +21,7 @@ import { cloneDeep, isEqual } from "lodash-es"
 import { HoppTab } from "~/services/tab"
 import { HoppRESTDocument } from "~/helpers/rest/document"
 import { WorkspaceRequest } from "~/services/new-workspace/workspace"
-import { HandleRef } from "~/services/new-workspace/handle"
+import { Handle } from "~/services/new-workspace/handle"
 
 // TODO: Move Response and Request execution code to over here
 
@@ -44,7 +44,7 @@ watch(
       "workspace-user-collection"
     ) {
       const requestHandle = tab.value.document.saveContext.requestHandle as
-        | HandleRef<WorkspaceRequest>["value"]
+        | Handle<WorkspaceRequest>["value"]
         | undefined
 
       if (!requestHandle || requestHandle.type === "invalid") {

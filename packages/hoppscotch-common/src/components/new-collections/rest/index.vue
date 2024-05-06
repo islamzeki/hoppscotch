@@ -512,7 +512,7 @@ import {
 import { currentReorderingStatus$ } from "~/newstore/reordering"
 import { platform } from "~/platform"
 import { NewWorkspaceService } from "~/services/new-workspace"
-import { HandleRef } from "~/services/new-workspace/handle"
+import { Handle } from "~/services/new-workspace/handle"
 import { RESTCollectionViewRequest } from "~/services/new-workspace/view"
 import { Workspace, WorkspaceRequest } from "~/services/new-workspace/workspace"
 import { RESTTabService } from "~/services/tab/rest"
@@ -539,7 +539,7 @@ const currentUser = useReadonlyStream(
 const restCollectionState = useReadonlyStream(restCollections$, [])
 
 const props = defineProps<{
-  workspaceHandle: HandleRef<Workspace>
+  workspaceHandle: Handle<Workspace>
   picked?: Picked | null
   saveRequest?: boolean
 }>()
@@ -2092,7 +2092,7 @@ const isActiveRequest = (requestView: RESTCollectionViewRequest) => {
 
   // TODO: Investigate why requestHandle is available unwrapped here
   const requestHandle = tabs.currentActiveTab.value.document.saveContext
-    .requestHandle as HandleRef<WorkspaceRequest>["value"] | undefined
+    .requestHandle as Handle<WorkspaceRequest>["value"] | undefined
   if (!requestHandle) {
     return false
   }

@@ -4,7 +4,7 @@ import {
 } from "@hoppscotch/ui/dist/src/helpers/treeAdapter"
 import { Ref, ref, watchEffect } from "vue"
 import { NewWorkspaceService } from "~/services/new-workspace"
-import { HandleRef } from "~/services/new-workspace/handle"
+import { Handle } from "~/services/new-workspace/handle"
 import { RESTCollectionViewItem } from "~/services/new-workspace/view"
 import { Workspace } from "~/services/new-workspace/workspace"
 import * as E from "fp-ts/Either"
@@ -13,7 +13,7 @@ export class WorkspaceRESTCollectionTreeAdapter
   implements SmartTreeAdapter<RESTCollectionViewItem>
 {
   constructor(
-    private workspaceHandle: HandleRef<Workspace>,
+    private workspaceHandle: Handle<Workspace>,
     private workspaceService: NewWorkspaceService
   ) {}
 

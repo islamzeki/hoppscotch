@@ -19,7 +19,7 @@ import {
 } from "."
 
 import { NewWorkspaceService } from "../new-workspace"
-import { HandleRef } from "../new-workspace/handle"
+import { Handle } from "../new-workspace/handle"
 import { WorkspaceRequest } from "../new-workspace/workspace"
 
 export abstract class TabService<Doc>
@@ -98,7 +98,7 @@ export abstract class TabService<Doc>
       this.tabOrdering.value = []
 
       for (const doc of data.orderedDocs) {
-        let requestHandle: HandleRef<WorkspaceRequest> | null = null
+        let requestHandle: Handle<WorkspaceRequest> | null = null
         let resolvedTabDoc = doc.doc
 
         // TODO: Account for GQL
@@ -250,7 +250,7 @@ export abstract class TabService<Doc>
 
     // TODO: Investigate why requestHandle is available unwrapped here
     const requestHandle = saveContext.requestHandle as
-      | HandleRef<WorkspaceRequest>["value"]
+      | Handle<WorkspaceRequest>["value"]
       | undefined
 
     if (!requestHandle) {

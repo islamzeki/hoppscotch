@@ -9,7 +9,7 @@ import { GetSingleRequestDocument } from "../backend/graphql"
 import { HoppInheritedProperty } from "../types/HoppInheritedProperties"
 import { getAffectedIndexes } from "./affectedIndex"
 import { WorkspaceRequest } from "~/services/new-workspace/workspace"
-import { HandleRef } from "~/services/new-workspace/handle"
+import { Handle } from "~/services/new-workspace/handle"
 
 /**
  * Resolve save context on reorder
@@ -67,7 +67,7 @@ export function resolveSaveContextOnCollectionReorder(payload: {
     }
 
     const requestHandle = tab.document.saveContext.requestHandle as
-      | HandleRef<WorkspaceRequest>["value"]
+      | Handle<WorkspaceRequest>["value"]
       | undefined
 
     if (!requestHandle || requestHandle.type === "invalid") {
@@ -97,7 +97,7 @@ export function resolveSaveContextOnCollectionReorder(payload: {
     }
 
     const requestHandle = tab.value.document.saveContext.requestHandle as
-      | HandleRef<WorkspaceRequest>["value"]
+      | Handle<WorkspaceRequest>["value"]
       | undefined
 
     if (!requestHandle || requestHandle.type === "invalid") {
@@ -159,7 +159,7 @@ export function updateSaveContextForAffectedRequests(
       tab.document.saveContext?.originLocation === "workspace-user-collection"
     ) {
       const requestHandle = tab.document.saveContext.requestHandle as
-        | HandleRef<WorkspaceRequest>["value"]
+        | Handle<WorkspaceRequest>["value"]
         | undefined
 
       if (!requestHandle || requestHandle.type === "invalid") {
@@ -256,7 +256,7 @@ export function updateInheritedPropertiesForAffectedRequests(
       }
 
       const requestHandle = tab.document.saveContext.requestHandle as
-        | HandleRef<WorkspaceRequest>["value"]
+        | Handle<WorkspaceRequest>["value"]
         | undefined
 
       if (!requestHandle || requestHandle.type === "invalid") {
@@ -302,7 +302,7 @@ export function updateInheritedPropertiesForAffectedRequests(
       }
 
       const requestHandle = tab.value.document.saveContext.requestHandle as
-        | HandleRef<WorkspaceRequest>["value"]
+        | Handle<WorkspaceRequest>["value"]
         | undefined
 
       if (!requestHandle || requestHandle.type === "invalid") {
@@ -387,7 +387,7 @@ function resetSaveContextForAffectedRequests(folderPath: string) {
     }
 
     const requestHandle = tab.document.saveContext.requestHandle as
-      | HandleRef<WorkspaceRequest>["value"]
+      | Handle<WorkspaceRequest>["value"]
       | undefined
 
     if (!requestHandle || requestHandle.type === "invalid") {
@@ -413,7 +413,7 @@ function resetSaveContextForAffectedRequests(folderPath: string) {
       "workspace-user-collection"
     ) {
       const requestHandle = tab.value.document.saveContext.requestHandle as
-        | HandleRef<WorkspaceRequest>["value"]
+        | Handle<WorkspaceRequest>["value"]
         | undefined
 
       if (!requestHandle || requestHandle.type === "invalid") {
